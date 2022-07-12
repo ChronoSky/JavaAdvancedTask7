@@ -50,8 +50,8 @@ public class Calculator {
      * @param b second double param
      * @return division of two params
      */
-    private Double division(double a, double b) throws ArithmeticException {
-        if (b == 0) throw new ArithmeticException();
+    private Double division(double a, double b) throws DivisionByZeroException {
+        if (b == 0) throw new DivisionByZeroException("Делить на ноль нельзя");
         return a / b;
     }
 

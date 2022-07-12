@@ -1,3 +1,4 @@
+import exceptions.DivisionByZeroException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -61,5 +62,19 @@ public class Tests {
         calc.setSecondParam(1.25);
         calc.doOperation("/");
         Assert.assertEquals("Не корректный результат при делении", calc.getResult(), 2, 0.0);
+    }
+
+
+    @Test
+    public void checkExceptionDivisionByZero() throws Exception {
+        try{
+            Calculator calc = new Calculator();
+            calc.setFirstParam(3);
+            calc.setSecondParam(0);
+            calc.doOperation("/");
+        }catch (DivisionByZeroException e){
+            Assert.assertEquals("Делить на ноль нельзя", e.getMessage());
+        }
+
     }
 }
